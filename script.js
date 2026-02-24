@@ -143,73 +143,12 @@ const button=document.querySelector('button')
 //     console.log("Finally block")
 // })
 
-function doHomework(){
-    const p=new Promise(function(resolve,reject){
-        setTimeout(()=>{
-            let done=true;
-            if(done){
-                console.log("Homework is done")
-                resolve("Homework complete")
-            }else{
-                reject("Homework is not done")
-            }
-        },5000)
-    })
-    return p
+async function getData()
+    try{
+        const ressponse= await fetch("") 
+        console.log(Response.ok)
+        if(Response,ok===false)throw new Error("Data not Found")
+            const data=await Response.json()
+        console.log(data)
+        
 }
-
-function eatDinner(){
-    const p=new Promise(function(resolve,reject){
-        setTimeout(()=>{
-            let done=true;
-            if(done){
-                console.log("Eating Dinner")
-                resolve("Dinner complete")
-            }else{
-                reject("Dinner is not done")
-            }
-        },5000)
-    })
-    return p
-}
-
-function goToPlayground(){
-    const p=new Promise(function(resolve,reject){
-        setTimeout(()=>{
-            let done=true;
-            if(done){
-                console.log("Went to playground")
-                resolve("Playground Time")
-            }else{
-                reject("Go to sleep")
-            }
-        },5000)
-    })
-    return p
-}
-
-doHomework().then((data)=>{
-    console.log(data)
-    return eatDinner()
-}).then((data)=>{
-    console.log(data)
-    return goToPlayground()
-}).then((data)=>{
-    console.log(data)
-}).catch((err)=>{
-    console.log(err)
-}).finally(()=>{
-    console.log("Go to Sleep")
-})
-
-console.log("First Line")
-setTimeout(()=>{
-    console.log("Inside Timeout")
-}
-const p3=new Promise (resolve,reject)=>{
-    resolve()
-
-}
-p3.then((data)=>{
-    console.log("Promise resolved",data)
-})
